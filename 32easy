@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Name Validation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid gray;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: red;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <form>
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name">
+        <span id="error" class="error"></span>
+    </form>
+
+    <script>
+        let nameInput = document.getElementById("name");
+        let error = document.getElementById("error");
+
+        nameInput.addEventListener("input", function() {
+            if (/^[a-zA-Z]*$/.test(nameInput.value)) {
+                error.textContent = "";
+            } else {
+                error.textContent = "Letters only!";
+            }
+        });
+    </script>
+
+</body>
+</html>
